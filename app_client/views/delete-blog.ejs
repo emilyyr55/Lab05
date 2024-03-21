@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+  
+    <div class="container">
+  
+      <%- include('./partials/nav') %>
+      <p></p>
+      <h4>Are you sure you want to delete this task?</h4>
+      <p>
+      
+        <div class="card border-primary" style="width: 50%"> 
+          <div class="card-header">
+          <div class="row">
+              <div class="col-sm"> 
+              </div>
+              <div class="col-sm">
+                  
+              </div>
+              </div>
+          </div>
+          <div class="card-body">
+              <h5 class ="card-title"><%=blog.blogTitle%></h5>
+              <p class="card-text"><%=blog.blogText%></p>
+          </div>
+          <div class="card-footer">
+              <div class = "row">
+                  <div class = "col-sm">
+                      
+                  </div>
+                  <div class = "col-sm">
+                      <ul class="nav justify-content-end nav-pills card-header-pills">
+                  
+                      </ul>
+                  </div>  
+              </div>
+          </div>
+      </div>
+      <p> <!-- card -->
+       <!-- card -->
+    <form method="post" action="/blog-delete/<%=blog._id%>" style="padding: 20px">
+          <input type="submit" class="btn btn-danger float-right" value="Delete Blog">
+          <a class="btn btn-primary float-right" style="margin-right: 25px" href="/blog" role="button">Cancel</a>
+    </form>
+</div>
+       
+  
+    </div>
+  
+  </body>
+</html>
