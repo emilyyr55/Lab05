@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="/css/fontawesome-all.css">
     
   </head>
-  <body>
+  <body style="background-color:#d3eed2">
   
     <!-- Navigation -->  
-    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-secondary">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark " style="background-color:seagreen">
     <a class="navbar-brand" href="/"> My Blogs </a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
         <div class="navbar-nav">
         <a class="nav-item nav-link active" href="/#!/blog-list"> List Blogs</a>
         <a class="nav-item nav-link active" href="/#!/blog-add">Add Blog</a>
@@ -23,6 +23,8 @@
     </div>
     </nav> 
       
+
+
     <!-- Angular Templates -->  
     <script type="text/ng-template" id='pages/home.html'>
       <p></p>
@@ -92,7 +94,7 @@
               <label for="detail" class="text-primary">Blog Text</label>
               <textarea class="form-control" id="blogText" name="blogText" rows="3">{{vm.blog.blogText}}</textarea>
           </div>
-          <input type="submit" class="btn btn-primary" value="Save Blog">
+          <input type="submit" class="btn btn-primary" value="Save Blog" >
       </form> 
       </div>
   </script>
@@ -101,17 +103,17 @@
     <p></p>
     <div class="card border-secondary" style="width: 50%">  
     <form name="userForm" ng-submit="vm.submit()" ng-controller="AddController" style="padding: 20px">
-      <div class="card" style="width: 100%">
+      
         
             <div class="form-group">
-                <label for="blogTitle" class="text-secondary">Blog Title</label>
+                <label for="blogTitle" class="text-secondary" style="color:seagreen! important">Blog Title</label>
                 <input class="form-control" id="blogTitle" name="blogTitle"></textarea>
 
-                <label for="blogText" class="text-secondary">Blog Text</label>
+                <label for="blogText" class="text-secondary" style="color:seagreen! important">Blog Text</label>
                 <textarea class="form-control" id="blogText" rows="3" name="blogText"></textarea>
             
             </div>
-                <input type="submit" class="btn btn-primary" value="Add Task">
+                <input type="submit" class="btn btn-primary" value="Add Task" style="background-color:seagreen; border-color:seagreen">
         
         </div>
     </form> 
@@ -121,7 +123,7 @@
 
     
     <!-- Angular View (dynamic content goes here) -->  
-    <div ng-view> </div>
+    <ui-view> </ui-view>
 
     
 <script src="/js/bloggerApp.js"></script>  

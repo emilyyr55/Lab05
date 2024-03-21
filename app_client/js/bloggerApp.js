@@ -1,35 +1,42 @@
-var app = angular.module('bloggerApp', ['ngRoute', 'ui.router']);
+var app = angular.module('bloggerApp', [ 'ui.router']);
 
 //*** Router Provider ***
-app.config( function($stateProvider) {
+app.config( function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("blog-list");
+  
   $stateProvider
-      .when('/', {
+      .state("home", {
+        url: "",
           templateUrl: 'pages/home.html',
           controller: 'HomeController',
           controllerAs: 'vm'
           })
 
-      .when('/blog-list', {
+      .state('blog-list', {
+        url: "/blog-list",
           templateUrl: 'pages/blog-list.html',
           controller : 'ListController',
           controllerAs: 'vm'
           })
-      .when('/blog-add', {
+      .state('blog-add', {
+        url: "/blog-add",
 	      templateUrl: 'pages/blog-add.html',
 		  controller: 'AddController',
 		  controllerAs: 'vm'
 		  })
-      .when('/blog-edit/:id', {
+      .state('blog-edit', {
+        url: "/blog-edit/:id",
             templateUrl: 'pages/blog-edit.html',
             controller: 'EditController',
             controllerAs: 'vm'
             })  
-      .when('/blog-delete/:id', {
+      .state('blog-delete', {
+        url: "/blog-delete/:id",
             templateUrl: 'pages/blog-delete.html',
             controller: 'DeleteController',
             controllerAs: 'vm'
-      })
-      .otherwise({redirectTo: '/'});
+      });
+      
 
     });
 
@@ -82,12 +89,11 @@ app.controller('ListController', function ListController($http) {
 
 
 
-app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('EditController', [ '$http',  '$state', function EditController($http, $state) {
     var vm = this;
-    console.log(vm);
     vm.blog = {};       // Start with a blank blog
-    console.log($routeParams);
-    vm.id = $routeParams.id;    // Get id from $routParams which must be injected and passed into controller
+    console.log($state.getCurrentPath());
+    vm.id = $state.getCurrentPath()[1].paramValues.id;    // Get id from $routParams which must be injected and passed into controller
     vm.pageHeader = {
         title: 'Blog Edit'
     };
