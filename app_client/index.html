@@ -86,15 +86,15 @@
 
     <script type="text/ng-template" id="pages/blog-edit.html">
       <p></p>
-      <div class="card border-primary" style="width: 50%">  
+      <div class="card border-secondary" style="width: 50%">  
       <form name="userForm" ng-submit="vm.submit()" ng-controller="EditController" style="padding: 20px">
           <div class="form-group">
-              <label for="summary" class="text-primary">Blog Title</label>
+              <label for="summary" class="text-primary" style="color:seagreen! important" >Blog Title</label>
               <input class="form-control" id="blogTitle" name="blogTitle" value="{{vm.blog.blogTitle}}">
-              <label for="detail" class="text-primary">Blog Text</label>
+              <label for="detail" class="text-primary" style="color:seagreen! important">Blog Text</label>
               <textarea class="form-control" id="blogText" name="blogText" rows="3">{{vm.blog.blogText}}</textarea>
           </div>
-          <input type="submit" class="btn btn-primary" value="Save Blog" >
+          <input type="submit" class="btn btn-primary" value="Save Blog" style="background-color:seagreen; border-color:seagreen">
       </form> 
       </div>
   </script>
@@ -120,6 +120,49 @@
     </div>
 </script>
 
+<script type="text/ng-template" id="pages/blog-delete.html">
+    <p></p>
+    <h4>Are you sure you want to delete this task?</h4>
+    <p>
+    
+      <div class="card border-secondary" style="width: 50%" style=" border-color:seagreen! important"> 
+        <div class="card-header">
+        <div class="row">
+            <div class="col-sm"> 
+            </div>
+            <div class="col-sm">
+                
+            </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class ="card-title">{{vm.blog.blogTitle}}</h5>
+            <p class="card-text">{{vm.blog.blogText}}</p>
+        </div>
+        <div class="card-footer">
+            <div class = "row">
+                <div class = "col-sm">
+                    
+                </div>
+                <div class = "col-sm">
+                    <ul class="nav justify-content-end nav-pills card-header-pills">
+                
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </div>
+     <!-- card -->
+     <!-- card -->
+     <form name="userForm" ng-submit="vm.submit()" ng-controller="DeleteController" style="padding: 20px">
+        
+            <input type="submit" class="btn btn-primary" value="Delete Task" style="background-color:seagreen; border-color:seagreen">
+        <a class="btn btn-primary " href="/#!/blog-list" role="button" style="background-color:seagreen; border-color:seagreen">Cancel</a>
+        
+  </form>
+</div>
+
+</script>
 
     
     <!-- Angular View (dynamic content goes here) -->  

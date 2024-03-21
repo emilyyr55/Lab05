@@ -149,13 +149,22 @@ app.controller('AddController', [ '$http', '$state', function EditController($ht
     }
 }]);
 
-app.controller('DeleteController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('DeleteController', [ '$http', '$state', function DeleteController($http, $state) {
     var vm = this;   
-    console.log($routeParams);
-    vm.id = $routeParams.id;    // Get id from $routParams which must be injected and passed into controller
+    
+    vm.id = $state.getCurrentPath()[1].paramValues.id;     // Get id from $routParams which must be injected and passed into controller
     vm.pageHeader = {
         title: 'Delete Blog'
     };
+
+    getBlogById($http, vm.id)
+        .then(function (response){
+            console.log(response.data);
+            vm.blog = response.data;
+        vm.message = "Blog data found!";
+        },function (error){
+            vm.message = "Could not get blog given id of " + vm.id;
+        });
     
     // Submit function attached to ViewModel for use in form
     vm.submit = function() {
